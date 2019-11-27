@@ -1,26 +1,72 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Task from './Task.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  
+  state = {
+    todos : [{
+            desc: 'Buy the Cooffee',
+            checked: true,
+            id: 1
+          }]
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <div className="App-header">
+          <main>
+            <input type="text" 
+              placeholder="Add a new Task" 
+              onKeyUp={(e) => this.addTask(e)}
+              className="New-task"/>
+
+            {this.state.todos.map(todo =>
+              <Task todo={todo}
+                key={todo.id}
+                onCheck={this.onCheck}  
+                onDelete={this.onDelete}/>                
+            )}
+           </main>
+        </div>
+      </div>
+    );
+  }
+
+  addTask = (e) =>{
+    if('Enter' === e.key){
+        const newTask = {
+          desc: e.target.value,
+          checked: false,
+          id: new Date()*1
+        }
+        this.setState(
+          {
+            todos: [...this.state.todos, newTask]
+          }
+        )
+    }
+  }
+
+  onDelete = (e) =>{
+    this.setState(
+      {todos: [...this.state.todos.filter(todo => e.target.id != todo.id)]}
+    )
+  }
+
+  onCheck = (e) =>{
+    let updatedTodos = this.state.todos.map(todo => {
+      if(e.target.id == todo.id){
+        todo.checked = !todo.checked
+      }
+      return todo
+    })
+
+    this.setState({
+      todos: updatedTodos
+    })
+  }
 }
 
 export default App;

@@ -1,4 +1,4 @@
-.App {
+App {
   text-align: center;
 }
 
@@ -17,6 +17,29 @@
   color: white;
 }
 
+main{
+  height: 400px;
+  overflow: auto;
+}
+
 .App-link {
   color: #09d3ac;
 }
+
+input{
+  height: 20px;
+  margin: 5px;
+}
+
+.Task input[type='text']{
+  width: 400px;
+}  
+
+.Task .Completed{
+  text-decoration: line-through;
+}
+
+.New-task{
+  width: 500px;
+}  
+
