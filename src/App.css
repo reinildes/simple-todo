@@ -13,13 +13,18 @@ App {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(12px + 2vmin);
+  color:rgba(29, 28, 28, 0.671);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Roraima3_%2879%29.JPG/1280px-Roraima3_%2879%29.JPG');
+  background-size: 100%;
 }
 
 main{
   height: 400px;
   overflow: auto;
+  padding-right: 15px;
+  width: 540px;
+  margin: auto;
 }
 
 .App-link {
@@ -33,7 +38,24 @@ input{
 
 .Task input[type='text']{
   width: 400px;
+  padding: 3px;
 }  
+
+.Task input[type='button']{
+  height: 25px;  
+}  
+
+.Task input[type='checkbox']{
+  transform: scale(1.5);
+  vertical-align: middle;
+  margin-left: 10px;
+} 
+
+.UserName {
+  width: 300px;
+  padding: 5px;
+  font-size: medium;
+} 
 
 .Task .Completed{
   text-decoration: line-through;
@@ -41,5 +63,10 @@ input{
 
 .New-task{
   width: 500px;
-}  
+  padding: 5px;
 
+} 
+
+main p{
+  text-align: center;
+}
