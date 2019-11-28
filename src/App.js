@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Task from './Task.js'
 
-const backend = 'http://127.0.0.1:5000'
+const backend = 'https://back-dot-x-elf-260403.appspot.com/'
 
 class App extends React.Component {
   
